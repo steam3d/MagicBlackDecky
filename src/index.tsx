@@ -1,8 +1,6 @@
 import "./i18n"
 import {
   definePlugin,
-  DialogButton,
-  Navigation,
   PanelSection,
   PanelSectionRow,
   ServerAPI,
@@ -12,7 +10,6 @@ import { VFC } from "react";
 import { Trans } from 'react-i18next'
 import { BlackOverlay } from "./blackOverlay";
 import { LogoIcon, Shortcut } from "./icons";
-import { t } from 'i18next';
 
 
 const Content: VFC<{ serverAPI: ServerAPI }> = ({ serverAPI }) => {
@@ -27,17 +24,6 @@ const Content: VFC<{ serverAPI: ServerAPI }> = ({ serverAPI }) => {
             />
           </div>
         </PanelSectionRow>
-      </PanelSection>
-
-      <PanelSection title={t("more_plugins")}>
-        <DialogButton
-          onClick={() => {
-            Navigation.CloseSideMenus();
-            Navigation.NavigateToExternalWeb("https://magicpods.app/steamdeck/");
-          }}
-        >
-          MagicPods
-        </DialogButton>
       </PanelSection>
     </div>
   );

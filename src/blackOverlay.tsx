@@ -1,6 +1,6 @@
-import { Router, findModuleChild } from "decky-frontend-lib";
+import { findModuleChild } from "decky-frontend-lib";
 import { VFC, useEffect, useState } from "react";
-import { ULKeys, ULUpperKeys, isPressed } from "./keys";
+import { Button, Input } from "./input";
 
 enum UIComposition {
     Hidden = 0,
@@ -27,49 +27,55 @@ const useUIComposition: (composition: UIComposition) => void = findModuleChild(
     }
 );
 
-let globalVisibility = false;
-export const BlackOverlay: VFC = () => {
+export class State {
+    private state = false;
+    private onStateChangedListeners: Array<(b: boolean) => void> = [];
+
+    onStateChanged(callback: (b: boolean) => void) {
+        this.onStateChangedListeners.push(callback);
+    }
+
+    offStateChanged(callback: (b: boolean) => void) {
+        const index = this.onStateChangedListeners.indexOf(callback);
+        if (index !== -1) {
+            this.onStateChangedListeners.splice(index, 1);
+        }
+    }
+
+    SetState(b: boolean){
+        this.state = b;
+        this.onStateChangedListeners.forEach(callback => {
+            callback(b);
+        });
+    }
+
+    GetState(): boolean{
+        return this.state;
+    }
+}
+
+export const BlackOverlay: VFC<{state: State}> = ({state}) => {
     const [visible, setVisible] = useState(false);
     useUIComposition(visible ? UIComposition.Overlay : UIComposition.Hidden);
 
-    let keyPressingTime = Date.now();
-    let keyPressed = false;
-    let qamPressed = false;
-
     useEffect(() => {
-        const input_register = window.SteamClient.Input.RegisterForControllerStateChanges(
-            (changes: any[]) => {
-                for (const inputs of changes) {
-                    if (isPressed(ULUpperKeys.QAM, inputs.ulUpperButtons) && isPressed(ULKeys.SELECT, inputs.ulButtons)) {
-                        if (keyPressed != true && Date.now() - keyPressingTime > 350) {
-                            (Router as any).DisableHomeAndQuickAccessButtons();
-                            keyPressingTime = Date.now();
-                            keyPressed = true;
-                            qamPressed = true;
-                            globalVisibility = !globalVisibility;
-                            setVisible(globalVisibility);
-                        }
-                    }
-                    else {
-                        if (qamPressed != false && !isPressed(ULUpperKeys.QAM, inputs.ulUpperButtons)){
-                            qamPressed = false;
-                            setTimeout(() => {
-                                (Router as any).EnableHomeAndQuickAccessButtons();
-                                //console.log("Enable QAM");
-                            }, 350);                                                  
-                        }
-                        if (keyPressed != false) {
-                            //console.log("Button release");                                
-                            keyPressed = false;
-                        }
-                    }
-                }
-            }
-        );
+        state.onStateChanged(onStateChanged);
+        const input = new Input([Button.QUICK_ACCESS_MENU, Button.SELECT]);
+        input.onShortcutPressed(onShortcutPressed);    
         return () => {
-            input_register.unregister();
+            state.offStateChanged(onStateChanged);
+            input.offShortcutPressed(onShortcutPressed);
+            input.unregister();
         };
     }, []);
+
+    const onShortcutPressed = () => {
+        state.SetState(!state.GetState());            
+    }
+
+    const onStateChanged = (b: boolean) => {
+        setVisible(b);
+    }
 
 
     return (

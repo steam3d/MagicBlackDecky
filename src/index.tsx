@@ -8,7 +8,7 @@ import {
 } from "decky-frontend-lib";
 import { VFC } from "react";
 import { Trans } from 'react-i18next'
-import { BlackOverlay } from "./blackOverlay";
+import { BlackOverlay, State } from "./blackOverlay";
 import { LogoIcon, Shortcut } from "./icons";
 
 
@@ -30,7 +30,8 @@ const Content: VFC<{ serverAPI: ServerAPI }> = ({ serverAPI }) => {
 };
 
 export default definePlugin((serverApi: ServerAPI) => {
-  serverApi.routerHook.addGlobalComponent("BlackOverlay", BlackOverlay);
+  const state = new State();
+  serverApi.routerHook.addGlobalComponent("BlackOverlay", () => (<BlackOverlay state={state}/>));
 
   return {
     title: <div className={staticClasses.Title}>MagicBlack</div>,

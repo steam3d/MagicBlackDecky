@@ -59,10 +59,14 @@ export const BlackOverlay: VFC<{state: State}> = ({state}) => {
     useUIComposition(visible ? UIComposition.Overlay : UIComposition.Hidden);
 
     useEffect(() => {
+        const suspend_register = SteamClient.User.RegisterForPrepareForSystemSuspendProgress(((data: any[]) => {
+            state.SetState(false);
+        }));
         state.onStateChanged(onStateChanged);
         const input = new Input([Button.QUICK_ACCESS_MENU, Button.SELECT]);
-        input.onShortcutPressed(onShortcutPressed);    
+        input.onShortcutPressed(onShortcutPressed);   
         return () => {
+            suspend_register.unregister();            
             state.offStateChanged(onStateChanged);
             input.offShortcutPressed(onShortcutPressed);
             input.unregister();

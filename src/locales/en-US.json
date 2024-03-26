@@ -1,5 +1,7 @@
 {
     "translation": {
-        "help_message": "Press <Shortcut>Shortcut</Shortcut> to overlay a black background over the entire screen"
+        "help_message": "Press <Key1/> + <Key2/> to overlay a black background over the entire screen",
+        "toggle_enableoverlay_label": "Overlay black background",
+        "toggle_enableoverlay_description": "Press <Key/> to return to the plugin"
     }
 }

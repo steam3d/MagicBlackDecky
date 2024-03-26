@@ -1,5 +1,7 @@
 {
     "translation": {
-        "help_message": "Нажмите <Shortcut>Shortcut</Shortcut>, чтобы наложить черный фон на весь экран"
+        "help_message": "Нажмите <Key1/> + <Key2/>, чтобы наложить черный фон на весь экран",
+        "toggle_enableoverlay_label": "Наложить черный фон",
+        "toggle_enableoverlay_description": "Нажмите <Key/>, чтобы вернуться к плагину"
     }
 }

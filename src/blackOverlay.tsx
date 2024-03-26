@@ -42,39 +42,42 @@ export class State {
         }
     }
 
-    SetState(b: boolean){
+    SetState(b: boolean) {
+        if (this.state === b)
+            return;
+        
         this.state = b;
         this.onStateChangedListeners.forEach(callback => {
             callback(b);
         });
     }
 
-    GetState(): boolean{
+    GetState(): boolean {
         return this.state;
     }
 }
 
-export const BlackOverlay: VFC<{state: State}> = ({state}) => {
+export const BlackOverlay: VFC<{ state: State }> = ({ state }) => {
     const [visible, setVisible] = useState(false);
     useUIComposition(visible ? UIComposition.Overlay : UIComposition.Hidden);
 
     useEffect(() => {
+        state.onStateChanged(onStateChanged);
         const suspend_register = SteamClient.User.RegisterForPrepareForSystemSuspendProgress(((data: any[]) => {
             state.SetState(false);
         }));
-        state.onStateChanged(onStateChanged);
         const input = new Input([Button.QUICK_ACCESS_MENU, Button.SELECT]);
-        input.onShortcutPressed(onShortcutPressed);   
+        input.onShortcutPressed(onShortcutPressed);
         return () => {
-            suspend_register.unregister();            
             state.offStateChanged(onStateChanged);
+            suspend_register.unregister();
             input.offShortcutPressed(onShortcutPressed);
             input.unregister();
         };
     }, []);
 
     const onShortcutPressed = () => {
-        state.SetState(!state.GetState());            
+        state.SetState(!state.GetState());
     }
 
     const onStateChanged = (b: boolean) => {

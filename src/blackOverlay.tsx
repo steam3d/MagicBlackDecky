@@ -45,7 +45,7 @@ export class State {
     SetState(b: boolean) {
         if (this.state === b)
             return;
-        
+
         this.state = b;
         this.onStateChangedListeners.forEach(callback => {
             callback(b);
@@ -57,9 +57,22 @@ export class State {
     }
 }
 
+export const BlackBackground: VFC = () => {
+    useUIComposition(UIComposition.Overlay);
+    return (
+        <div style={{
+            height: "100vh",
+            width: "100vw",
+            background: "#000000",
+            opacity: 1,
+            zIndex: 7002,
+            position: "fixed",
+        }} />
+    )
+}
+
 export const BlackOverlay: VFC<{ state: State }> = ({ state }) => {
     const [visible, setVisible] = useState(false);
-    useUIComposition(visible ? UIComposition.Overlay : UIComposition.Hidden);
 
     useEffect(() => {
         state.onStateChanged(onStateChanged);
@@ -88,15 +101,7 @@ export const BlackOverlay: VFC<{ state: State }> = ({ state }) => {
     return (
         <>
             {visible &&
-                <div style={{
-                    height: "100vh",
-                    width: "100vw",
-                    background: "#000000",
-                    opacity: 1,
-                    zIndex: 7002,
-                    position: "fixed",
-                }}
-                />
+                <BlackBackground />
             }
         </>
     );

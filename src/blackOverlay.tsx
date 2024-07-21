@@ -58,7 +58,7 @@ export class State {
 }
 
 export const BlackBackground: VFC = () => {
-    useUIComposition(UIComposition.Overlay);
+    useUIComposition(UIComposition.Notification);
     return (
         <div style={{
             height: "100vh",

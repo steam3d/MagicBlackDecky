@@ -2,6 +2,7 @@
     "translation": {
         "help_message": "Press <Key1/> + <Key2/> to overlay a black background over the entire screen",
         "toggle_enableoverlay_label": "Overlay black background",
-        "toggle_enableoverlay_description": "Press <Key/> to return to the plugin"
+        "toggle_enableoverlay_description": "Press <Key/> to return to the plugin",
+        "warning_message": "<Key1/> Note that the keys and the touch screen will continue to work"
     }
 }

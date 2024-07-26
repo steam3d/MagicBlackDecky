@@ -2,6 +2,7 @@
     "translation": {
         "help_message": "按下 <Key1/> + <Key2/>，在整个屏幕上覆盖黑色背景",
         "toggle_enableoverlay_label": "叠加黑色背景",
-        "toggle_enableoverlay_description": "按下 <Key/> 返回插件"
+        "toggle_enableoverlay_description": "按下 <Key/> 返回插件",
+        "warning_message": "<Key1/> 请注意，按键和触摸屏将继续工作"
     }
 }

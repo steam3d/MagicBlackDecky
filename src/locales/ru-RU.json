@@ -2,6 +2,7 @@
     "translation": {
         "help_message": "Нажмите <Key1/> + <Key2/>, чтобы наложить черный фон на весь экран",
         "toggle_enableoverlay_label": "Наложить черный фон",
-        "toggle_enableoverlay_description": "Нажмите <Key/>, чтобы вернуться к плагину"
+        "toggle_enableoverlay_description": "Нажмите <Key/>, чтобы вернуться к плагину",
+        "warning_message": "<Key1/> Обратите внимание, что клавиши и сенсорный экран продолжат работать"
     }
 }

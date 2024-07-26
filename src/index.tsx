@@ -13,7 +13,7 @@ import { Trans } from 'react-i18next'
 import { t } from 'i18next';
 import { BlackOverlay, State } from "./blackOverlay";
 import { LogoIcon } from "./icons";
-import { QUICK_ACCESS_MENU, SELECT } from "./ButtonIcons";
+import { QUICK_ACCESS_MENU, SELECT, WARNING } from "./ButtonIcons";
 
 
 const Content: VFC<{ serverAPI: ServerAPI, state: State }> = ({ state }) => {
@@ -48,6 +48,14 @@ const Content: VFC<{ serverAPI: ServerAPI, state: State }> = ({ state }) => {
             label={t("toggle_enableoverlay_label")}
             description={<Trans i18nKey="toggle_enableoverlay_description" components={{ Key: <QUICK_ACCESS_MENU style={{ height: "18px", width: "auto", marginBottom: "-5px" }} /> }} />} onChange={(b) => { state.SetState(b); Navigation.CloseSideMenus(); }} />
         </PanelSectionRow>
+      <PanelSectionRow>
+          <div className={staticClasses.Label} style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+            <Trans
+                i18nKey="warning_message"
+                components={{ Key1: <WARNING style={{ height: "16px", width: "auto", marginBottom: "-3.5px", paddingRight: "0px" }} />}}
+              />
+          </div>
+      </PanelSectionRow>
       </PanelSection>
     </div>
   );

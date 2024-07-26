@@ -67,6 +67,7 @@ export const BlackBackground: VFC = () => {
             opacity: 1,
             zIndex: 7002,
             position: "fixed",
+            pointerEvents: "none"
         }} />
     )
 }

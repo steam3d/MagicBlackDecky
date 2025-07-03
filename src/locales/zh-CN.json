@@ -3,6 +3,10 @@
         "help_message": "按下 <Key1/> + <Key2/>，在整个屏幕上覆盖黑色背景",
         "toggle_enableoverlay_label": "叠加黑色背景",
         "toggle_enableoverlay_description": "按下 <Key/> 返回插件",
+        "oled_saver_label":"闪烁保护",
+        "oled_saver_description":"将系统调至最高亮度，然后使用透明度来调整显示器亮度以减缓OLED屏幕在低亮度的闪烁问题，保护眼睛！",
+        "overlay_opacity_label": "亮度",
+        "overlay_opacity_description": "调整屏幕亮度",
         "warning_message": "<Key1/> 请注意，按键和触摸屏将继续工作"
     }
 }

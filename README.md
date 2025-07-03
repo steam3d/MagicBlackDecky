@@ -18,4 +18,4 @@ A magic plugin for the Decky Loader that overlays the screen with black color, e
 
 ## 🚀 Getting started
 
-Now that you have MagicBlack, press <img src="./docs/images/dark/shortcust.svg#gh-light-mode-only" height=16><img src="./docs/images/light/shortcust.svg#gh-dark-mode-only" height=16> to overlay a black background over the entire screen.
+Now that you have MagicBlack, press <img src="./docs/images/dark/shortcut1.svg#gh-light-mode-only" height=16><img src="./docs/images/light/shortcut1.svg#gh-dark-mode-only" height=16> to overlay a black background over the entire screen.

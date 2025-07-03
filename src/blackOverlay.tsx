@@ -80,7 +80,7 @@ export const BlackOverlay: VFC<{ state: State }> = ({ state }) => {
         const suspend_register = SteamClient.User.RegisterForPrepareForSystemSuspendProgress(((data: any[]) => {
             state.SetState(false);
         }));
-        const input = new Input([Button.QUICK_ACCESS_MENU, Button.SELECT]);
+        const input = new Input([Button.QUICK_ACCESS_MENU, Button.START]);
         input.onShortcutPressed(onShortcutPressed);
         return () => {
             state.offStateChanged(onStateChanged);

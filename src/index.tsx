@@ -13,7 +13,7 @@ import { Trans } from 'react-i18next'
 import { t } from 'i18next';
 import { BlackOverlay, State } from "./blackOverlay";
 import { LogoIcon } from "./icons";
-import { QUICK_ACCESS_MENU, SELECT, WARNING } from "./ButtonIcons";
+import { QUICK_ACCESS_MENU, START, WARNING } from "./ButtonIcons";
 
 
 const Content: VFC<{ serverAPI: ServerAPI, state: State }> = ({ state }) => {
@@ -39,7 +39,7 @@ const Content: VFC<{ serverAPI: ServerAPI, state: State }> = ({ state }) => {
           <div className={staticClasses.Text} style={{ paddingLeft: "0px", paddingRight: "0px" }}>
             <Trans
               i18nKey="help_message"
-              components={{ Key1: <QUICK_ACCESS_MENU style={{ height: "24px", width: "auto", marginBottom: "-6.5px" }} />, Key2: <SELECT style={{ height: "24px", width: "auto", marginBottom: "-6.5px" }} /> }}
+              components={{ Key1: <QUICK_ACCESS_MENU style={{ height: "24px", width: "auto", marginBottom: "-6.5px" }} />, Key2: <START style={{ height: "24px", width: "auto", marginBottom: "-6.5px" }} /> }}
             />
           </div>
         </PanelSectionRow>

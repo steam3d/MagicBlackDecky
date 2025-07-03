@@ -21,6 +21,13 @@ export const SELECT = ({ style }: { style?: CSSProperties | undefined }) => {
     </svg>
 }
 
+export const START = ({ style }: { style?: CSSProperties | undefined }) => {
+    return <svg style={style} width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <rect width="32" height="32" fill="none" />
+        <path d="M7.33333 8.66602C3.28324 8.66602 0 11.9493 0 15.9994C0 20.0494 3.28325 23.3327 7.33333 23.3327H24.6667C28.7168 23.3327 32 20.0494 32 15.9994C32 11.9493 28.7168 8.66602 24.6667 8.66602H7.33333ZM20.6667 11.7216H11.3333V13.4327H20.6667V11.7216ZM11.3333 18.5661H20.6667V20.2772H11.3333V18.5661ZM20.6667 15.1438H11.3333V16.8549H20.6667V15.1438Z" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" />
+    </svg>
+}
+
 export const L5 = ({ style }: { style?: CSSProperties | undefined }) => {
     return <svg style={style} width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <rect width="32" height="32" fill="none" />

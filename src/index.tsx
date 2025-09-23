@@ -14,6 +14,7 @@ import { t } from 'i18next';
 import { BlackOverlay, State } from "./blackOverlay";
 import { LogoIcon } from "./icons";
 import { QUICK_ACCESS_MENU, START, WARNING } from "./ButtonIcons";
+import { Input } from "./input";
 
 
 const Content: VFC<{ serverAPI: ServerAPI, state: State }> = ({ state }) => {
@@ -35,6 +36,17 @@ const Content: VFC<{ serverAPI: ServerAPI, state: State }> = ({ state }) => {
   return (
     <div>
       <PanelSection>
+        {!Input.isSupported() &&
+          <PanelSectionRow>
+            <div className={staticClasses.Label} style={{ paddingLeft: "0px", paddingRight: "0px" }}>
+              <Trans
+                i18nKey="error_hotkey_message"
+                components={{ Key1: <WARNING style={{ height: "16px", width: "auto", marginBottom: "-3.5px", paddingRight: "0px" }} /> }}
+              />
+            </div>
+          </PanelSectionRow>
+        }
+        
         <PanelSectionRow>
           <div className={staticClasses.Text} style={{ paddingLeft: "0px", paddingRight: "0px" }}>
             <Trans

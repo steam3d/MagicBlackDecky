@@ -77,14 +77,20 @@ export const BlackOverlay: VFC<{ state: State }> = ({ state }) => {
 
     useEffect(() => {
         state.onStateChanged(onStateChanged);
-        const suspend_register = SteamClient.User.RegisterForPrepareForSystemSuspendProgress(((data: any[]) => {
-            state.SetState(false);
-        }));
+
+        let suspend_register: { unregister: () => void } | null = null;
+        if (SteamClient?.User?.RegisterForPrepareForSystemSuspendProgress != null){
+            suspend_register = SteamClient.User.RegisterForPrepareForSystemSuspendProgress(((data: any[]) => {
+                state.SetState(false);
+            }));
+
+        }
+
         const input = new Input([Button.QUICK_ACCESS_MENU, Button.START]);
         input.onShortcutPressed(onShortcutPressed);
         return () => {
             state.offStateChanged(onStateChanged);
-            suspend_register.unregister();
+            suspend_register?.unregister();
             input.offShortcutPressed(onShortcutPressed);
             input.unregister();
         };

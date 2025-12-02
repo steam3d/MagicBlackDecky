@@ -1,4 +1,4 @@
-import { Router} from "decky-frontend-lib";
+import { Router} from "@decky/ui";
 
 export const enum Button {
     R2 = 0,

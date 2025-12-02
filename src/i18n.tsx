@@ -6,8 +6,8 @@ import enUS from "./locales/en-US.json";
 import ruRU from "./locales/ru-RU.json";
 import zhCN from "./locales/zh-CN.json";
 
-
-i18n
+function initI18n(){
+  i18n
   .use(initReactI18next)
   //.use(LanguageDetector)
   .init({
@@ -22,6 +22,9 @@ i18n
     },
     //debug: true,
     lng: navigator.language,
-    //lng: "ru-RU",
+    //lng: "zh-CN",
     fallbackLng: "en-US",
   });
+}
+
+export default initI18n;

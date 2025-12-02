@@ -1,8 +1,24 @@
 {
     "translation": {
-        "help_message": "按下 <Key1/> + <Key2/>，在整个屏幕上覆盖黑色背景",
-        "toggle_enableoverlay_label": "叠加黑色背景",
+        "help_message": "按下 <Key1/> + <Key2/>，即可在整个屏幕上叠加黑色背景",
+        "toggle_enableoverlay_label": "黑色背景",
         "toggle_enableoverlay_description": "按下 <Key/> 返回插件",
-        "warning_message": "<Key1/> 请注意，按键和触摸屏将继续工作"
+        "toggle_enablescreensaver_label": "屏幕保护程序",
+        "toggle_allowtouch_label": "触摸屏",
+        "toggle_allowtouch_description": "覆盖层激活时保持触摸屏可用",
+        "toggle_mutemic_label": "静音麦克风",
+        "toggle_mutemic_description": "覆盖层激活时将麦克风音量设为 0",
+        "toggle_mutesound_label": "静音扬声器",
+        "toggle_mutesound_description": "覆盖层激活时将扬声器音量设为 0",
+        "toggle_offanykey_label": "按任意键关闭",
+        "toggle_offanykey_description": "按下任意键时关闭覆盖层",
+        "toggle_offuponwaking_label": "唤醒时关闭",
+        "toggle_offuponwaking_description": "设备从睡眠恢复后自动关闭覆盖层",
+        "slider_overlayopacity_label": "不透明度",
+        "slider_overlayopacity_description": "调节覆盖层的透明度",
+        "options_header": "设置",
+        "options_modal": "这个魔法插件会在屏幕上覆盖一层黑色背景，模拟 Steam Deck OLED 关闭时的效果。为了降低 OLED 闪烁，请先把屏幕亮度调到 100%，启用覆盖层，再通过不透明度滑块调节实际亮度。",
+        "button_donate": "捐赠",
+        "settings_social_button_description": "显示二维码"
     }
 }

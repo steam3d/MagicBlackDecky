@@ -1,9 +1,24 @@
 {
     "translation": {
         "help_message": "Press <Key1/> + <Key2/> to overlay a black background over the entire screen",
-        "toggle_enableoverlay_label": "Overlay black background",
+        "toggle_enableoverlay_label": "Black background",
         "toggle_enableoverlay_description": "Press <Key/> to return to the plugin",
-        "warning_message": "<Key1/> Note that the keys and the touch screen will continue to work",
-        "error_hotkey_message":"<Key1/> Hotkeys are broken in all plugins due to a SteamOS update. No solution yet, hotkeys remain disabled."
+        "toggle_enablescreensaver_label": "Screensaver",
+        "toggle_allowtouch_label": "Touchscreen",
+        "toggle_allowtouch_description": "Keep the touchscreen responsive while the overlay is active",
+        "toggle_mutemic_label": "Mute microphone",
+        "toggle_mutemic_description": "Set the microphone volume to zero while the overlay is active",
+        "toggle_mutesound_label": "Mute speakers",
+        "toggle_mutesound_description": "Set the speaker volume to zero while the overlay is active",
+        "toggle_offanykey_label": "Disable on any key",
+        "toggle_offanykey_description": "Turns off the overlay when any key is pressed.",
+        "toggle_offuponwaking_label": "Disable on wake",
+        "toggle_offuponwaking_description": "Turns off the overlay after resuming from sleep.",
+        "slider_overlayopacity_label": "Opacity",
+        "slider_overlayopacity_description": "Adjust transparent of the overlay",
+        "options_header": "Settings",
+        "options_modal": "This magic plugin applies a black overlay to the screen, emulating a turned-off display on the Steam Deck OLED. To reduce OLED flicker, set the screen brightness to 100%, enable the overlay, and then adjust the effective brightness using the opacity slider.",
+        "button_donate": "Donate",
+        "settings_social_button_description": "Show QR code"
     }
 }

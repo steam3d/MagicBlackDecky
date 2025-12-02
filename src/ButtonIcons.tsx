@@ -42,6 +42,7 @@ export const L4 = ({ style }: { style?: CSSProperties | undefined }) => {
   </svg>
 }
 
+//Not used
 export const WARNING = ({ style }: { style?: CSSProperties | undefined }) => {
     return <svg style={style} width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
     <rect width="32" height="32" fill="none"/>

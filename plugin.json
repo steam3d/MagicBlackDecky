@@ -2,6 +2,7 @@
   "name": "MagicBlack",
   "author": "Aleksandr Maslov",
   "flags": [],
+  "api_version": 1,
   "publish": {
     "tags": ["oled", "overlay", "black", "shortcut", "screen", "off"],
     "description": "Overlays the screen with black color, emulating the screen being turned off on the Steam Deck OLED.",

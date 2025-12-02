@@ -1,9 +1,24 @@
 {
     "translation": {
         "help_message": "Нажмите <Key1/> + <Key2/>, чтобы наложить черный фон на весь экран",
-        "toggle_enableoverlay_label": "Наложить черный фон",
+        "toggle_enableoverlay_label": "Черный фон",
         "toggle_enableoverlay_description": "Нажмите <Key/>, чтобы вернуться к плагину",
-        "warning_message": "<Key1/> Обратите внимание, что клавиши и сенсорный экран продолжат работать",
-        "error_hotkey_message": "<Key1/> Обновление SteamOS сломало работу горячих клавиш во всех плагинах. Пока решение не найдено, горячие клавиши остаются отключены."
+        "toggle_enablescreensaver_label": "Заставка",
+        "toggle_allowtouch_label": "Сенсорный экран",
+        "toggle_allowtouch_description": "Оставить сенсорный экран активным, пока включено наложение",
+        "toggle_mutemic_label": "Отключить микрофон",
+        "toggle_mutemic_description": "Установить громкость микрофона в ноль, пока активно наложение",
+        "toggle_mutesound_label": "Отключить динамики",
+        "toggle_mutesound_description": "Установить громкость динамиков в ноль, пока активно наложение",
+        "toggle_offanykey_label": "Выключить любой кнопкой",
+        "toggle_offanykey_description": "Отключить наложение нажатием любой клавиши",
+        "toggle_offuponwaking_label": "Выключить при пробуждении",
+        "toggle_offuponwaking_description": "Отключить наложение после выхода из сна",
+        "slider_overlayopacity_label": "Непрозрачность",
+        "slider_overlayopacity_description": "Отрегулируйте прозрачность наложения",
+        "options_header": "Настройки",
+        "options_modal": "Этот волшебный плагин накладывает на экран чёрный слой, имитируя выключенный дисплей Steam Deck OLED. Чтобы снизить мерцание OLED, установите яркость дисплея на 100 %, включите чёрный фон, а затем настройте яркость с помощью ползунка непрозрачности.",
+        "button_donate": "Пожертвовать",
+        "settings_social_button_description": "Показать QR-код"
     }
 }

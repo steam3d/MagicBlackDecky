@@ -1,9 +1,10 @@
 {
   "name": "magicblack-decky",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Overlays the screen with black color, emulating the screen being turned off on the Steam Deck OLED.",
+  "type": "module",
   "scripts": {
-    "build": "shx rm -rf dist && rollup -c",
+    "build": "rollup -c",
     "watch": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,24 +30,21 @@
   },
   "homepage": "https://github.com/steam3d/MagicBlackDecky#readme",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^21.1.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-replace": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@types/react": "16.14.0",
-    "@types/webpack": "^5.28.0",
-    "rollup": "^2.77.1",
-    "rollup-plugin-import-assets": "^1.1.1",
-    "shx": "^0.3.4",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "@decky/rollup": "^1.0.1",
+    "@decky/ui": "^4.11.1",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "@types/webpack": "^5.28.5",
+    "rollup": "^4.22.5",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
-    "decky-frontend-lib": "^3.25.0",
-    "react-icons": "^4.4.0",
-    "i18next": "^23.8.2",
-    "react-i18next": "^14.0.5"
+    "@decky/api": "^1.1.2",
+    "i18next": "^23.16.8",
+    "qrcode.react": "^4.2.0",
+    "react-i18next": "^14.0.5",
+    "react-icons": "^5.3.0",
+    "tslib": "^2.7.0"
   },
   "pnpm": {
     "peerDependencyRules": {

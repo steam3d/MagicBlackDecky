@@ -17,7 +17,7 @@ A magic plugin for the Decky Loader that overlays the screen with black color, e
 7. Press the Install button
 
 
-🎨 Features
+## 🎨 Features
 
 - Overlay a black background
 - Adjust the opacity of the black background

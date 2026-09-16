@@ -1,6 +1,6 @@
 {
   "name": "magicblack-decky",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Overlays the screen with black color, emulating the screen being turned off on the Steam Deck OLED.",
   "type": "module",
   "scripts": {
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/steam3d/MagicBlackDecky#readme",
   "devDependencies": {
     "@decky/rollup": "^1.0.1",
-    "@decky/ui": "^4.12.0",
+    "@decky/ui": "^4.12.1",
     "@rollup/rollup-linux-x64-musl": "^4.53.3",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",

@@ -1,6 +1,6 @@
 {
   "name": "magicblack-decky",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Overlays the screen with black color, emulating the screen being turned off on the Steam Deck OLED.",
   "type": "module",
   "scripts": {

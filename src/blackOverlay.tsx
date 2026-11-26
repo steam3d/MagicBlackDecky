@@ -1,5 +1,4 @@
 import { FC, useCallback, useEffect, useRef, useState } from "react";
-//import { Button, Input } from "./input";
 import { loadBooleanSetting, loadNumberSetting } from "./settings";
 import { AudioController } from "./audioController";
 import { useCatchAllGamepad } from "./hooks/useCatchAllGamepad";
@@ -128,20 +127,10 @@ export const BlackOverlay: FC<{ state: StateNumber; opacityState: StateNumber }>
         void outputControllerRef.current.restore();
     }, [applyOverlaySettings, stopAnyKeyCapture, releaseResumeFromSuspend]);
 
-    //Due september steam client update we cannot use shortcuts anymore
-    //const onShortcutPressed = () => {
-    //    state.SetState(state.GetState() === 1 ? 0 : 1);
-    //}
-
     useEffect(() => {
         state.onStateChanged(onStateChanged);
-
-        //const input = new Input([Button.QUICK_ACCESS_MENU, Button.START]);
-        //input.onShortcutPressed(onShortcutPressed);
         return () => {
             state.offStateChanged(onStateChanged);
-            //input.offShortcutPressed(onShortcutPressed);
-            //input.unregister();
         };
     }, [state, onStateChanged]);
 

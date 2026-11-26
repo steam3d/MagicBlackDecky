@@ -12,7 +12,7 @@ import {
   ModalRoot,
   joinClassNames,
   gamepadDialogClasses,
-  quickAccessMenuClasses,
+  quickAccessControlsClasses,
 } from "@decky/ui";
 import {
   routerHook,
@@ -48,7 +48,7 @@ const Content: FC<{
   const OptionsPanelSection = joinClassNames(
   gamepadDialogClasses.HighlightOnFocus,
   gamepadDialogClasses.Field,
-  quickAccessMenuClasses.PanelSectionRow,
+  quickAccessControlsClasses.PanelSectionRow,
 )
 
   const showQrModal = () => {
@@ -117,7 +117,7 @@ const Content: FC<{
           className={OptionsPanelSection}
           style={{ marginLeft: "-16px", marginRight: "-16px", marginTop: "24px" }}
           onOKButton={() => showQrModal()}>
-          <div className={staticClasses.PanelSectionTitle}
+          <div className={quickAccessControlsClasses.PanelSectionTitle}
             style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingLeft: "16px", paddingRight: "16px", width: "100%" }}
             onClick={() => showQrModal()}>
             {t("options_header")}

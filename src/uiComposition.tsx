@@ -1,4 +1,4 @@
-import { findModuleChild } from "@decky/ui";
+import { findModuleExport, findVar } from "@decky/ui";
 
 export enum UIComposition {
     Hidden = 0,
@@ -10,20 +10,38 @@ export enum UIComposition {
     OverlayKeyboard1 = 6,
 }
 
-// Matches Decky internal API for forcing overlay composition state.
-export const useUIComposition: (composition: UIComposition) => void = findModuleChild(
-    (m) => {
-        if (typeof m !== "object") return undefined;
-        for (let prop in m) {
-            if (
-                typeof m[prop] === "function" &&
-                m[prop].toString().includes("AddMinimumCompositionStateRequest") &&
-                m[prop].toString().includes("ChangeMinimumCompositionStateRequest") &&
-                m[prop].toString().includes("RemoveMinimumCompositionStateRequest") &&
-                !m[prop].toString().includes("m_mapCompositionStateRequests")
-            ) {
-                return m[prop];
-            }
+type UICompositionHook = (
+    composition: UIComposition,
+    requestName?: string,
+) => { releaseComposition: () => void };
+
+// Steam's composition hook is an internal module-scope variable. Decky UI 5's
+// resolver exposes those through findVar; findModuleChild only searches public
+// module exports and no longer sees this hook after the Steam client update.
+const isUICompositionHook = (candidate: unknown): candidate is UICompositionHook => {
+    if (typeof candidate !== "function") return false;
+
+    const source = candidate.toString();
+    return (
+        source.includes("AddMinimumCompositionStateRequest") &&
+        source.includes("ChangeMinimumCompositionStateRequest") &&
+        source.includes("RemoveMinimumCompositionStateRequest") &&
+        !source.includes("m_mapCompositionStateRequests")
+    );
+};
+
+const resolvedUICompositionHook =
+    findVar(isUICompositionHook) ?? findModuleExport(isUICompositionHook);
+let didWarnAboutMissingCompositionHook = false;
+
+export const useUIComposition = (composition: UIComposition): void => {
+    if (!isUICompositionHook(resolvedUICompositionHook)) {
+        if (!didWarnAboutMissingCompositionHook) {
+            didWarnAboutMissingCompositionHook = true;
+            console.error("[MagicBlack] Steam UI composition hook was not found");
         }
+        return;
     }
-);
+
+    resolvedUICompositionHook(composition, "MagicBlack");
+};

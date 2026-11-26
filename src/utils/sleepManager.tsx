@@ -1,4 +1,4 @@
-import { findModuleExport } from "@decky/ui";
+import { findModuleExport, findVar } from "@decky/ui";
 
 export type SleepManagerModule = {
   RegisterForNotifyResumeFromSuspend?: (handler: () => void) => unknown;
@@ -22,9 +22,14 @@ export const getSleepManagerModule = (): SleepManagerModule | null => {
     return globalModule;
   }
 
-  const foundExport = findModuleExport((exp: any) => isSleepManagerModule(exp));
-  if (isSleepManagerModule(foundExport)) {
-    return foundExport;
+  // Decky UI 5 exposes Steam's internal ESM variables through findVar. Keep
+  // findModuleExport as a fallback for older Steam module layouts where the
+  // generated client service was a public module export.
+  const foundModule =
+    findVar((variable: any) => isSleepManagerModule(variable)) ??
+    findModuleExport((exp: any) => isSleepManagerModule(exp));
+  if (isSleepManagerModule(foundModule)) {
+    return foundModule;
   }
 
   console.warn("[MagicBlack] SleepManager module not found");
